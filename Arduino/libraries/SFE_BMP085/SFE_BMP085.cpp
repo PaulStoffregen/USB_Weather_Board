@@ -216,7 +216,7 @@ char SFE_BMP085::readInt(char address, int *value)
 	data[0] = address;
 	if (readBytes(data,2))
 	{
-		*value = (((int)data[0]<<8)|(int)data[1]);
+		*value = (int16_t)(((int)data[0]<<8)|(int)data[1]);
 		//if (*value & 0x8000) *value |= 0xFFFF0000; // sign extend if negative
 		return(1);
 	}
